@@ -1,17 +1,38 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+
+const Home = () => import('../views/home/Home.vue')
+const Cart = () => import('../views/cart/Cart.vue')
+const Catogory = () => import('../views/catogory/Catogory.vue')
+const Profile = () => import('../views/profile/Profile.vue')
+const Details = () => import('../views/details/Details.vue')
+
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: '',
+    redirect: '/home'
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/home',
+    component: Home,
+  },
+  {
+    path: '/cart',
+    component: Cart
+  },
+  {
+    path: '/profile',
+    component: Profile
+  },
+  {
+    path: '/catogory',
+    component: Catogory
+  },
+  {
+    path: '/details/:id',
+    component: Details
   }
+ 
 ]
 
 const router = createRouter({
